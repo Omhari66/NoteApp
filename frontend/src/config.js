@@ -1,3 +1,1 @@
-
-export const BASE_URL = process.env.REACT_APP_BACKEND_URL || "http://localhost:5000";
-
+export const BASE_URL = import.meta.env.VITE_API_URL || "http://localhost:5000/api";
