@@ -60,7 +60,7 @@ const Home = () => {
   const addNote = async (title, description) => {
     try {
       const { data } = await axios.post(
-        `${BASE_URL}}/api/note/add`,
+        `${BASE_URL}/api/note/add`,
         { title, description },
         {
           headers: {
