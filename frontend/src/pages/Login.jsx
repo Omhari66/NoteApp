@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import {BASE_URL} from "../config";
 import axios from "axios";
 import { Link,useNavigate } from "react-router-dom";
 import { useAuth } from "../context/ContextProvider"; 
@@ -13,7 +14,7 @@ const Login = () => {
    const handleSubmit=async(e)=>{
         e.preventDefault();
         try{
-            const response= await axios.post("http://localhost:5000/api/auth/login" ,{email,password});
+            const response= await axios.post(`${BASE_URL}/api/auth/login` ,{email,password});
             if(response.data.success){
                 login(response.data.user)
                 localStorage.setItem("token",response.data.token)

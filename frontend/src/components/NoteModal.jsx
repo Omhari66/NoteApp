@@ -37,7 +37,7 @@ const NoteModal = ({ closeModal, addNote, currentNote, editNote }) => {
             value={title}
             onChange={(e) => setTitle(e.target.value)}
             placeholder="Note Title"
-             className="
+            className="
     w-full p-3 rounded-lg border outline-none transition
     bg-white text-black
     focus:ring-2 focus:ring-indigo-400
@@ -52,7 +52,7 @@ const NoteModal = ({ closeModal, addNote, currentNote, editNote }) => {
             onChange={(e) => setDescription(e.target.value)}
             placeholder="Note Description"
             rows="4"
-              className="
+            className="
     w-full p-3 rounded-lg border outline-none transition
     bg-white text-black
     focus:ring-2 focus:ring-indigo-400

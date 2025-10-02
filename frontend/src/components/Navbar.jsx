@@ -1,11 +1,11 @@
 import React from "react";
 import { Link, useNavigate } from "react-router-dom";
 import { useAuth } from "../context/ContextProvider";
-import {useTheme} from "../context/ThemeContext";
+import { useTheme } from "../context/ThemeContext";
 import noteLogo from "../assets/note.png";
-const Navbar = ({setQuery}) => {
-  const { user,logout } = useAuth();
-  const {darkMode,toggleTheme} =useTheme();
+const Navbar = ({ setQuery }) => {
+  const { user, logout } = useAuth();
+  const { darkMode, toggleTheme } = useTheme();
   const navigate = useNavigate();
 
   const handleLogout = () => {
@@ -18,10 +18,9 @@ const Navbar = ({setQuery}) => {
     <nav className="bg-indigo-600 shadow-md px-6 py-4 flex items-center justify-between">
       {/* Left Logo */}
       <div className="text-white font-bold text-xl tracking-wide flex items-center space-x-2">
-  <img src={noteLogo} alt="Note App Logo" className="h-8 w-8" />
-  <Link to="/">NoteApp</Link>
-</div>
-
+        <img src={noteLogo} alt="Note App Logo" className="h-8 w-8" />
+        <Link to="/">NoteApp</Link>
+      </div>
 
       {/* Search Bar */}
       <div className="flex-1 mx-6">
@@ -29,7 +28,7 @@ const Navbar = ({setQuery}) => {
           type="text"
           placeholder="Search notes..."
           className="w-full max-w-md px-4 py-2 rounded-lg border border-gray-300 focus:outline-none focus:ring-2 focus:ring-indigo-400"
-          onChange={(e)=>setQuery(e.target.value)}
+          onChange={(e) => setQuery(e.target.value)}
         />
       </div>
 
@@ -62,7 +61,7 @@ const Navbar = ({setQuery}) => {
           </>
         )}
       </div>
-         <button
+      <button
         onClick={toggleTheme}
         className="ml-4 px-3 py-1 rounded-lg bg-gray-200 dark:bg-gray-700 text-gray-800 dark:text-gray-200"
       >
@@ -72,4 +71,4 @@ const Navbar = ({setQuery}) => {
   );
 };
 
-export default Navbar;  
+export default Navbar;

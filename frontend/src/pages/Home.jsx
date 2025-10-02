@@ -1,4 +1,5 @@
 import React, { useEffect, useState } from "react";
+import {BASE_URL} from "../config";
 import Navbar from "../components/Navbar";
 import NoteModal from "../components/NoteModal";
 import NoteCard from "../components/NoteCard";
@@ -27,11 +28,12 @@ const Home = () => {
 
   const fetchNotes = async () => {
     try {
-      const { data } = await axios.get("http://localhost:5000/api/note", {
-        headers: {
-          Authorization: `Bearer ${localStorage.getItem("token")}`,
-        },
-      });
+      const { data } = await axios.get(`${BASE_URL}/api/note`, {
+  headers: {
+    Authorization: `Bearer ${localStorage.getItem("token")}`,
+  },
+});
+
       setNotes(data.notes);
     } catch (error) {
       console.error("Error fetching notes:", error);
@@ -58,7 +60,7 @@ const Home = () => {
   const addNote = async (title, description) => {
     try {
       const { data } = await axios.post(
-        "http://localhost:5000/api/note/add",
+        `${BASE_URL}}/api/note/add`,
         { title, description },
         {
           headers: {
@@ -79,7 +81,7 @@ const Home = () => {
   const editNote = async (id, title, description) => {
     try {
       const { data } = await axios.put(
-        `http://localhost:5000/api/note/${id}`,
+        `${BASE_URL}/api/note/${id}`,
         { title, description },
         {
           headers: {
@@ -103,7 +105,7 @@ const Home = () => {
   const deleteNote = async (id) => {
     try {
       const { data } = await axios.delete(
-        `http://localhost:5000/api/note/${id}`,
+        `${BASE_URL}/api/note/${id}`,
 
         {
           headers: {
@@ -123,7 +125,7 @@ const Home = () => {
   const togglePin = async (id) => {
     try {
       const { data } = await axios.put(
-        `http://localhost:5000/api/note/pin/${id}`,
+        `${BASE_URL}/api/note/pin/${id}`,
         {},
         {
           headers: { Authorization: `Bearer ${localStorage.getItem("token")}` },

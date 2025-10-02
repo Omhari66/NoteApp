@@ -8,10 +8,7 @@ import dotenv from "dotenv";
 dotenv.config();
 const app=express();
 //middlewares
-app.use(cors({
-     origin: 'https://noture.netlify.app',
-    credentials: true
-}))
+app.use(cors());
 app.use(express.json())
 //routes
 app.use("/api/auth",authRouter)
